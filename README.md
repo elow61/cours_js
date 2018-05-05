@@ -1,2 +1,2 @@
 # cours_js
-Exercice JavaScript où il était question de réaliser un programme qui fait saisir un nom de jour à l'utilisateur puis affiche le nom du jour suivant. 
+Exercices JavaScript du cours "Apprenez à coder avec JavaScript" sur le site:  www.OpenClassrooms.com.
