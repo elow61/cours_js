@@ -1,0 +1,32 @@
+/* 
+Activité : jeu de devinette
+*/
+
+console.log("Bienvenue dans ce jeu de devinette !");
+
+// Cette ligne génère aléatoirement un nombre entre 1 et 100
+var solution = Math.floor(Math.random() * 100) + 1;
+
+console.log("La solution est " + solution + "");
+
+for (var i = 1, devinette; i <= 6; i++) {
+	
+	devinette = Number(prompt("Devinez un nombre entre 1 et 100"));
+
+	if (devinette === solution) {
+	alert("Bravo ! La solution était " + solution + ".");
+	break; 
+	}
+
+	if (devinette < solution) {
+	alert(devinette + " est trop petit.");
+	} 
+	else {
+		alert(devinette + " est trop grand.");
+	}
+
+	if (i === 6) {
+	alert("Perdu... La solution était " + solution + ".");
+	}
+}
+
