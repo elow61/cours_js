@@ -1,0 +1,27 @@
+var c = Number(prompt("Entrez le montant à créditer : "));
+var d = Number(prompt("Entrez le montant à débiter : "));
+
+
+var compte = {
+    titulaire: "Alex",
+    solde: 0,
+    
+    crediter: function () {
+        var credit = compte.solde + c;
+        return credit;
+    },
+    
+    debiter: function () {
+        var debit = (compte.solde + c) - d;
+        return debit;
+    },
+    
+    decrire: function () {
+        var description = compte.crediter() - compte.debiter();
+        return description;
+    }
+};
+
+console.log("Titulaire : " + compte.titulaire + ", solde : " + compte.solde + " euros");
+
+console.log("Titulaire : " + compte.titulaire + ", solde : " + compte.decrire() + " euros");
