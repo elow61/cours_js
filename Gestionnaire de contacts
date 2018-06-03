@@ -1,0 +1,65 @@
+console.log("Bienvenue dans le gestionnaire de contacts !");
+
+// Création des contacts
+var Contact = {
+	init: function (nom, prenom) {
+	this.nom = nom;
+	this.prenom = prenom;
+	},
+	
+	decrire: function () {
+	var description = "Nom : " + this.nom + ", prénom : " + this.prenom;
+	return description;
+	}
+};
+
+// Création des contacts déjà existant
+var contact1 = Object.create(Contact);
+contact1.init("Lévisse", "Carole");
+
+var contact2 = Object.create(Contact);
+contact2.init("Nelsonne", "Mélodie");
+
+var contacts = [];
+contacts.push(contact1);
+contacts.push(contact2);
+
+// Création d'une fonction listant les contacts
+function listeContact() {
+	contacts.forEach(function (contact) {
+		console.log(contact.decrire());
+	});
+}
+// Création du menu 
+var menus = ["1 : Lister les contacts", "2 : Ajouter un contact", "0 : Quitter"];
+
+// Choix de l'utilisateur
+while (utilisateur !== 0) {
+	for (var i = 0; i < menus.length; i++) {
+		console.log(menus[i]);
+	}
+	
+	var utilisateur = Number(prompt("Choisissez une option : "));
+	
+	switch (utilisateur) {
+		case 1 :
+			console.log("Voici la liste de tout vos contacts : ");
+			listeContact();
+			break;
+		case 2 : 
+			var nom = prompt("Tapez un nom : ");
+			var prenom = prompt("Tapez un prénom : ");
+			var newContact = nom + prenom;
+			newContact = Object.create(Contact);
+			newContact.init(nom, prenom);
+			contacts.push(newContact);
+			console.log("Le nouveau contact a été ajouté !");
+			break;
+		case 0 : 
+			console.log("Au revoir !");
+			break;
+		default:
+			console.log("Je n'ai pas compris votre choix. Choisissez une option 1, 2 ou 0.");
+			break;
+	}
+}
